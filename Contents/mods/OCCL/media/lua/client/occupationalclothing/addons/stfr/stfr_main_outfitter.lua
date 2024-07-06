@@ -35,6 +35,26 @@ local function getPoliceOutfit(department)
 			['Pants'] = 'STFR.Trousers_Sheriff_Jefferson',
 			['Neck'] = {'STFR.Tie_Full_Sheriff_Jefferson_Officer', 'STFR.Tie_Worn_Sheriff_Jefferson_Officer'},
 		}
+	elseif department == 'Rosewood' then
+		return {
+			['Hat'] = 'STFR.Hat_Sheriff_Rosewood_Officer',
+			['Jacket'] = 'STFR.Jacket_Sheriff_Rosewood_Officer',
+			['Shirt'] = 'STFR.Shirt_Sheriff_Rosewood_Officer',
+			['Tshirt'] = 'STFR.TShirt_Sheriff_Rosewood_Officer',
+			['TorsoExtra'] = bulletVest,
+			['Pants'] = 'STFR.Trousers_Sheriff_Rosewood',
+			['Neck'] = {'STFR.Tie_Full_Sheriff_Rosewood_Officer', 'STFR.Tie_Worn_Sheriff_Rosewood_Officer'},
+		}
+	elseif department == 'Meade' then
+		return {
+			['Hat'] = 'STFR.Hat_Sheriff_Meade_Officer',
+			['Jacket'] = 'STFR.Jacket_Sheriff_Meade_Officer',
+			['Shirt'] = 'STFR.Shirt_Sheriff_Meade_Officer',
+			['Tshirt'] = 'STFR.TShirt_Sheriff_Meade_Officer',
+			['TorsoExtra'] = bulletVest,
+			['Pants'] = 'STFR.Trousers_Sheriff_Meade',
+			['Neck'] = {'STFR.Tie_Full_Sheriff_Meade_Officer', 'STFR.Tie_Worn_Sheriff_Meade_Officer'},
+		}
 	elseif department == 'JeffersonPD' then
 		return {
 			['Hat'] = 'STFR.Hat_Police_Jefferson_Officer',
@@ -47,13 +67,13 @@ local function getPoliceOutfit(department)
 		}
 	else
 		return {
-			['Hat'] = {'STFR.Hat_Sheriff_' .. department .. '_Officer', 'STFR.Hat_Police_' .. department .. '_Officer',},
-			['Jacket'] = {'STFR.Jacket_Sheriff_' .. department .. '_Officer', 'STFR.Jacket_Police_' .. department .. '_Officer',},
-			['Shirt'] = {'STFR.Shirt_Sheriff_' .. department .. '_Officer', 'STFR.Shirt_Police_' .. department .. '_Officer',},
-			['Tshirt'] = {'STFR.TShirt_Sheriff_' .. department .. '_Officer', 'STFR.TShirt_Police_' .. department .. '_Officer',},
+			['Hat'] = {'STFR.Hat_Police_' .. department .. '_Officer',},
+			['Jacket'] = {'STFR.Jacket_Police_' .. department .. '_Officer',},
+			['Shirt'] = {'STFR.Shirt_Police_' .. department .. '_Officer',},
+			['Tshirt'] = {'STFR.TShirt_Police_' .. department .. '_Officer',},
 			['TorsoExtra'] = bulletVest,
-			['Pants'] = {'STFR.Trousers_Sheriff_' .. department,  'STFR.Trousers_Police_' .. department,},
-			['Neck'] = {'STFR.Tie_Full_Sheriff_' .. department, 'STFR.Tie_Worn_Sheriff_' .. department, 'STFR.Tie_Full_Police_' .. department, 'STFR.Tie_Worn_Police_' .. department,},
+			['Pants'] = {'STFR.Trousers_Police_' .. department,},
+			['Neck'] = {'STFR.Tie_Full_Police_' .. department, 'STFR.Tie_Worn_Police_' .. department,},
 		}
 	end
 end
@@ -100,6 +120,10 @@ function OCCL.Outfitter.STFR_Main.generateClothingTables()
 
     local mapTable = {
         ['Muldraugh'] = {
+            ['policeofficer'] = {getPoliceOutfit('Muldraugh')},
+            ['nurse'] = {meadeEMS}
+        },
+        ['Muldraugh Fire Department'] = {
             ['policeofficer'] = {getPoliceOutfit('Muldraugh')},
             ['nurse'] = {meadeEMS}
         },
